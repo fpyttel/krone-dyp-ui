@@ -1,0 +1,74 @@
+@import "../../../styles.scss";
+
+.dyp-results {
+    margin-top: 50px;
+}
+
+.mat-card-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.dyp-select {
+    width: 8rem;
+}
+
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+::ng-deep .mat-option {
+    line-height: 2em !important;
+    height: 2rem !important;
+}
+
+::ng-deep .mat-option-text {
+    font-size: 1rem;
+}
+
+.dyp-table {
+    width: 100%;
+
+    &__header {
+        font-weight: bold;
+
+        &__position {
+            text-align: left;
+        }
+    
+        &__name {
+            text-align: left;
+        }
+    
+        &__forecast {
+            text-align: center;
+        }
+    
+        &__points {
+            text-align: center;
+        }
+    }
+
+    &__item {
+        &__position {
+            text-align: left;
+            font-weight: bold;
+        }
+    
+        &__name {
+            text-align: left;
+            line-height: 2rem;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+    
+        &__forecast {
+            text-align: center;
+        }
+    
+        &__points {
+            text-align: center;
+        }
+    }
+
+}

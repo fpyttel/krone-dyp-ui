@@ -1,0 +1,28 @@
+<div>
+    <mat-toolbar color="primary" class="menu">
+        <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        </div>
+
+        <a mat-button class="home" routerLink="/">Krone-DYP</a>
+        <span class="fill-remaining-space"></span>
+        <div fxShow="true" fxHide.lt-md="true">
+        <a mat-button routerLink="/">Ergebnisse</a>
+        <a mat-button routerLink="/scoreboard">Rangliste</a>
+        </div>
+
+    </mat-toolbar>
+    <mat-sidenav-container fxFlexFill>
+        <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+        <div fxLayout="column">
+            <a mat-button class="side-link" routerLink="/">Ergebnisse</a>
+            <a mat-button class="side-link" routerLink="/scoreboard">Rangliste</a>
+        </div>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+            <app-home></app-home>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

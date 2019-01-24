@@ -1,0 +1,53 @@
+<mat-card class="dyp-results">
+    <mat-card-header>
+        <mat-card-title>
+            Ergebnisse vom
+            <mat-form-field>
+                <mat-select [(value)]="selectedDyp" (selectionChange)="onDypSelected($event)" class="dyp-select">
+                    <mat-option *ngFor="let dyp of (dyps | async)" [value]="dyp">
+                    {{dyp.date}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="currentDypResults" class="mat-elevation-z2 dyp-table">
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header_position"> Platz </th>
+                <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__position">
+                    {{element.position ? element.position : ''}}
+                </td>
+            </ng-container>
+            
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__name"> Spieler </th>
+                <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__name">
+                    {{element.team.player1.firstName}} {{element.team.player1.lastName}}
+                    <br>{{element.team.player2.firstName}} {{element.team.player2.lastName}}
+                </td>
+            </ng-container>
+            
+            <!-- Forecast Column -->
+            <ng-container matColumnDef="forecast">
+                <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__forecast"> Platz (Prognose) </th>
+                <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__forecast">
+                    {{element.forecast}}
+                </td>
+            </ng-container>
+            
+            <!-- Points Column -->
+            <ng-container matColumnDef="points">
+                <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__points"> Punkte </th>
+                <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__points">
+                    {{element.points}}
+                </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>   
+    </mat-card-content>
+</mat-card>
