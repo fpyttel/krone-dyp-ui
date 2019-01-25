@@ -1,0 +1,26 @@
+<mat-card class="player-info">
+    <mat-card-content class="player-info__content">
+        <dl class="row">
+            <dt class="col-md-4">Elo-Skill</dt>
+            <dd class="col-md-6">{{calcElo(player?.stats.elo)}}</dd>
+
+            <dt class="col-md-4">Letzte Teilnahme</dt>
+            <dd class="col-md-6">{{player?.stats.lastDypDate}}</dd>
+
+            <dt class="col-md-4">Teilnahmen gesamt</dt>
+            <dd class="col-md-6">{{player?.stats.dyps}}</dd>
+
+            <dt class="col-md-4">Anzahl Spiele</dt>
+            <dd class="col-md-6">{{player?.stats.matches}}</dd>
+
+            <dt class="col-md-4">Gewonnene Spiele</dt>
+            <dd class="col-md-6">{{player?.stats.wins}}</dd>
+
+            <dt class="col-md-4">Verlorene Spiele</dt>
+            <dd class="col-md-6">{{player?.stats.loss}}</dd>
+
+            <dt class="col-md-4">Effektivität</dt>
+            <dd class="col-md-6">{{calcEffectivity(player?.stats.effectivity)}}%</dd>
+        </dl>
+    </mat-card-content>
+</mat-card>

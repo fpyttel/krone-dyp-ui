@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { playerReducer } from './store/player/player.reducer';
 import { PlayerEffects } from './store/player/player.effect';
+import { PageNotFoundModule } from './components/page-not-found/page-not-found.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PlayerEffects } from './store/player/player.effect';
       DypEffects,
       PlayerEffects
     ]),
-    MenuModule
+    MenuModule,
+    PageNotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]

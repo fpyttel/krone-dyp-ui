@@ -18,4 +18,8 @@ export class PlayerService {
         return this.http.get<Player>(`${this.GET_PLAYER_URL}/${id}`);
     }
 
+    public getPlayerScores(id: number): Observable<Player> {
+        return this.http.get<any>(`${this.GET_PLAYER_URL}/${id}/positions`);
+    }
+
 }

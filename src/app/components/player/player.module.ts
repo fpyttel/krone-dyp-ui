@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 
 import { PlayerComponent } from './player.component';
-import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
+import { MatGridListModule } from '@angular/material';
+import { PlayerInfoModule } from './player-info/player-info.module';
+import { PlayerScoresModule } from './player-scores/player-scores.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +12,9 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    MatCardModule
+    MatGridListModule,
+    PlayerInfoModule,
+    PlayerScoresModule
   ],
   exports: [
     PlayerComponent

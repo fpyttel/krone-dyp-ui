@@ -11,8 +11,7 @@ import { PlayerModule } from '../player/player.module';
   ],
   imports: [
     MatCardModule,
-    DypResultsModule,
-    PlayerModule
+    DypResultsModule
   ],
   exports: [
     HomeComponent
