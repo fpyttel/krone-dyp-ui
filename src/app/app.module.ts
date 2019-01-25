@@ -10,6 +10,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { DypEffects } from './store/dyp/dyp.effect';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
+import { playerReducer } from './store/player/player.reducer';
+import { PlayerEffects } from './store/player/player.effect';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,12 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({
-      dyps: dypReducer
+      dyps: dypReducer,
+      players: playerReducer
     }),
     EffectsModule.forRoot([
-      DypEffects
+      DypEffects,
+      PlayerEffects
     ]),
     MenuModule
   ],

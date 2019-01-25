@@ -17,7 +17,6 @@ export class DypResultsComponent implements OnInit {
   currentDypResults: Observable<DypResult[]>;
   dyps: Observable<Dyp[]>;
   selectedDyp: Dyp;
-
   lastDyp: Dyp;
 
   constructor(private dypStore: Store<DypState>) { }
