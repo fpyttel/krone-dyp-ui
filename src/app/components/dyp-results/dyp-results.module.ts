@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { DypResultsComponent } from './dyp-results.component';
 import { MatTableModule, MatSelectModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatCardModule,
     MatTableModule,
     MatSelectModule

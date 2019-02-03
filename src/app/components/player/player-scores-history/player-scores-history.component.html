@@ -1,0 +1,6 @@
+<mat-card class="player-scores-history">
+    <mat-card-content class="player-scores-history__content">
+        <google-chart [data]="scoresHistoryChartData" [columnNames]="scoresHistoryChartColumnNames"
+            [type]="'ScatterChart'" [options]="scoresHistoryChartOptions" #chart></google-chart>
+    </mat-card-content>
+</mat-card>

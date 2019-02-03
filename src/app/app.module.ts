@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { playerReducer } from './store/player/player.reducer';
 import { PlayerEffects } from './store/player/player.effect';
 import { PageNotFoundModule } from './components/page-not-found/page-not-found.module';
+import { playerChartsReducer } from './store/player-charts/player-charts.reducer';
+import { PlayerChartsEffects } from './store/player-charts/player-charts.effect';
 
 @NgModule({
   declarations: [
@@ -25,11 +27,13 @@ import { PageNotFoundModule } from './components/page-not-found/page-not-found.m
     BrowserAnimationsModule,
     StoreModule.forRoot({
       dyps: dypReducer,
-      players: playerReducer
+      players: playerReducer,
+      playerCharts: playerChartsReducer
     }),
     EffectsModule.forRoot([
       DypEffects,
-      PlayerEffects
+      PlayerEffects,
+      PlayerChartsEffects
     ]),
     MenuModule,
     PageNotFoundModule

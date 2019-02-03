@@ -1,0 +1,6 @@
+<mat-card class="player-elo-history">
+    <mat-card-content class="player-elo-history__content">
+        <google-chart [data]="eloHistoryChartData" [columnNames]="eloHistoryChartColumnNames"
+            [type]="'LineChart'" [options]="eloHistoryChartOptions"></google-chart>
+    </mat-card-content>
+</mat-card>

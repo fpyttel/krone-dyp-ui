@@ -6,15 +6,15 @@ import { MatIconModule, MatButtonModule, MatSidenavModule } from '@angular/mater
 
 import { MenuComponent } from './menu.component';
 import { HomeModule } from '../home/home.module';
-import { AppRoutingModule } from 'src/app/app-routing.module';
 import { PlayerModule } from '../player/player.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     MenuComponent
   ],
   imports: [
-    AppRoutingModule,
+    RouterModule,
     MatMenuModule,
     MatToolbarModule,
     MatButtonModule,

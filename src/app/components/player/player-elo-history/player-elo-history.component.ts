@@ -1,29 +1,29 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { map, filter, switchMap } from 'rxjs/operators';
 import { Player } from 'src/app/models/player.model';
 import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.reducer';
-import { FetchPlayerScoresAction } from 'src/app/store/player-charts/player-charts.actions';
+import { FetchPlayerScoresAction, FetchPlayerEloHistoryAction } from 'src/app/store/player-charts/player-charts.actions';
 
 @Component({
-  selector: 'app-player-scores',
-  templateUrl: './player-scores.component.html',
-  styleUrls: ['./player-scores.component.scss']
+  selector: 'app-player-elo-history',
+  templateUrl: './player-elo-history.component.html',
+  styleUrls: ['./player-elo-history.component.scss']
 })
-export class PlayerScoresComponent implements OnInit {
+export class PlayerEloHistoryComponent implements OnInit {
 
   @Input() player: Observable<Player>;
 
-  scoreChartData;
+  eloHistoryChartData;
 
-  scoreChartColumnNames = [
-    'Platzierung',
-    'Anzahl'
+  eloHistoryChartColumnNames = [
+    'Begegnung',
+    'Elo'
   ];
 
-  scoreChartOptions = {
-    chartArea: { left: 60, top: 0, bottom: 20, width: '100%', height: '100%' },
+  eloHistoryChartOptions = {
+    chartArea: { left: 40, top: 5, bottom: 20, width: '100%', height: '100%' },
     hAxis: {
       baselineColor: 'none',
       textStyle: {
@@ -48,11 +48,11 @@ export class PlayerScoresComponent implements OnInit {
 
   ngOnInit(): void {
     // load score chart data
-    this.playerChartsStore.select('playerCharts').subscribe(p => this.scoreChartData = p.scoreData ? p.scoreData : [['', 0]]);
+    this.playerChartsStore.select('playerCharts').subscribe(p => this.eloHistoryChartData = p.eloHistory ? p.eloHistory : [['', 0]]);
 
     // fetch data
     this.player.pipe(filter(player => !!player)).subscribe((player: Player) => {
-      this.playerChartsStore.dispatch(new FetchPlayerScoresAction(player.id));
+      this.playerChartsStore.dispatch(new FetchPlayerEloHistoryAction(player.id));
     });
   }
 

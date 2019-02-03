@@ -10,7 +10,7 @@ import { Player } from '../models/player.model';
 })
 export class PlayerService {
 
-    public readonly GET_PLAYER_URL = `${BASE_URL}/player/`;
+    public readonly GET_PLAYER_URL = `${BASE_URL}/player`;
 
     constructor(private http: HttpClient) { }
 
@@ -18,8 +18,16 @@ export class PlayerService {
         return this.http.get<Player>(`${this.GET_PLAYER_URL}/${id}`);
     }
 
-    public getPlayerScores(id: number): Observable<Player> {
+    public getPlayerScores(id: number): Observable<any> {
         return this.http.get<any>(`${this.GET_PLAYER_URL}/${id}/positions`);
+    }
+
+    public getPlayerEloHistory(id: number): Observable<any> {
+        return this.http.get<any>(`${this.GET_PLAYER_URL}/${id}/eloHistory`);
+    }
+
+    public getPlayerScoresHistory(id: number): Observable<any> {
+        return this.http.get<any>(`${this.GET_PLAYER_URL}/${id}/positionsHistory`);
     }
 
 }
