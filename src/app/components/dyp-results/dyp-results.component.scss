@@ -9,8 +9,15 @@
     margin-right: 1rem;
 }
 
-.dyp-select {
-    width: 8rem;
+.dyp-title {
+    font-weight: bold;
+    font-size: $headline-size-2;
+    color: $headline;
+
+    &__select {
+        width: 8rem;
+        text-align: center;
+    }
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -24,6 +31,7 @@
 
 ::ng-deep .mat-option-text {
     font-size: 1rem;
+    text-align: center;
 }
 
 .dyp-table {
@@ -57,6 +65,7 @@
     
         &__name {
             text-align: left;
+            font-weight: bold;
             line-height: 2rem;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;

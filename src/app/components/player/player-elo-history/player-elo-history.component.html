@@ -1,6 +1,6 @@
-<mat-card class="player-elo-history">
-    <mat-card-content class="player-elo-history__content">
-        <google-chart [data]="eloHistoryChartData" [columnNames]="eloHistoryChartColumnNames"
-            [type]="'LineChart'" [options]="eloHistoryChartOptions"></google-chart>
-    </mat-card-content>
-</mat-card>
+<div style="position: relative" class="player-elo-history">
+    <google-chart [data]="eloHistoryChartData" [columnNames]="eloHistoryChartColumnNames" [type]="'LineChart'" [options]="eloHistoryChartOptions"
+        class="player-elo-history" ngxUiLoaderBlurred [loaderId]="'elo-history-loader'">
+    </google-chart>
+    <ngx-ui-loader [loaderId]="'elo-history-loader'"></ngx-ui-loader>
+</div>

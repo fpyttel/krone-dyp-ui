@@ -5,6 +5,7 @@ import { map, filter, switchMap } from 'rxjs/operators';
 import { Player } from 'src/app/models/player.model';
 import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.reducer';
 import { FetchPlayerScoresAction } from 'src/app/store/player-charts/player-charts.actions';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-player-scores',
@@ -41,14 +42,27 @@ export class PlayerScoresComponent implements OnInit {
       }
     },
     colors: ['#6E9610', '#49600A'],
+    backgroundColor: '#FCFCFC',
     legend: 'none'
   };
 
-  constructor(private playerChartsStore: Store<PlayerChartsState>) { }
+  constructor(private playerChartsStore: Store<PlayerChartsState>,
+    private loaderService: NgxUiLoaderService) { }
 
   ngOnInit(): void {
     // load score chart data
-    this.playerChartsStore.select('playerCharts').subscribe(p => this.scoreChartData = p.scoreData ? p.scoreData : [['', 0]]);
+    this.playerChartsStore.select('playerCharts').subscribe(p => {
+      this.scoreChartData = p.scoreData ? p.scoreData : [['', 0]];
+      if (p.scoreData) {
+        this.loaderService.stopLoader('scores-loader');
+      } else {
+        try {
+          this.loaderService.startLoader('scores-loader');
+        } catch (error) {
+          // don't ask me why
+        }
+      }
+    });
 
     // fetch data
     this.player.pipe(filter(player => !!player)).subscribe((player: Player) => {

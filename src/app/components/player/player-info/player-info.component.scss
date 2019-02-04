@@ -1,5 +1,22 @@
+@import "../../../../styles.scss";
+
 .player-info {
-    &__content {
-        margin-left: 1rem;
+    @include mat-elevation(2);
+    width: 100%;
+    min-height: 15rem;
+    background-color: $background-highlight;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+
+    &__infos {
+        justify-content: center;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
     }
+}
+
+.player-info > dl > dt,
+.player-info > dl > dd {
+    margin: 0.15em;
+    font-size: 0.9rem;
 }

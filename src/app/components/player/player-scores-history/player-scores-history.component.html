@@ -1,6 +1,5 @@
-<mat-card class="player-scores-history">
-    <mat-card-content class="player-scores-history__content">
-        <google-chart [data]="scoresHistoryChartData" [columnNames]="scoresHistoryChartColumnNames"
-            [type]="'ScatterChart'" [options]="scoresHistoryChartOptions" #chart></google-chart>
-    </mat-card-content>
-</mat-card>
+<div style="position: relative" class="player-scores-history">
+    <google-chart [data]="scoresHistoryChartData" [columnNames]="scoresHistoryChartColumnNames" [type]="'ScatterChart'"
+        [options]="scoresHistoryChartOptions" #chart class="player-scores-history" ngxUiLoaderBlurred [loaderId]="'scores-history-loader'"></google-chart>
+    <ngx-ui-loader [loaderId]="'scores-history-loader'"></ngx-ui-loader>
+</div>

@@ -1,6 +1,5 @@
-<mat-card class="player-scores">
-    <mat-card-content class="player-scores__content">
-        <google-chart [data]="scoreChartData" [columnNames]="scoreChartColumnNames"
-            [type]="'BarChart'" [options]="scoreChartOptions"></google-chart>
-    </mat-card-content>
-</mat-card>
+<div style="position: relative" class="player-scores">
+    <google-chart [data]="scoreChartData" [columnNames]="scoreChartColumnNames" [type]="'BarChart'" [options]="scoreChartOptions"
+        class="player-scores" ngxUiLoaderBlurred [loaderId]="'scores-loader'"></google-chart>
+    <ngx-ui-loader [loaderId]="'scores-loader'"></ngx-ui-loader>
+</div>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { BASE_URL } from './constants';
 import { HttpClient } from '@angular/common/http';
 import { Player } from '../models/player.model';
+import { Teammate } from '../models/teammate.model';
 
 @Injectable({
     providedIn: 'root'
@@ -28,6 +29,10 @@ export class PlayerService {
 
     public getPlayerScoresHistory(id: number): Observable<any> {
         return this.http.get<any>(`${this.GET_PLAYER_URL}/${id}/positionsHistory`);
+    }
+
+    public getPlayerTeammates(id: number): Observable<any> {
+        return this.http.get<Teammate[]>(`${this.GET_PLAYER_URL}/${id}/teammates`);
     }
 
 }

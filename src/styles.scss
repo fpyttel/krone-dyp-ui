@@ -2,6 +2,7 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 @import 'assets/colors.scss';
+@import 'assets/typography.scss';
 @import 'assets/theme.scss';
 
 body {
@@ -10,4 +11,8 @@ body {
 
 h1, h2, h3, h4, h5, h6, p, span, div, dl, dt, dd {
     font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+a {
+    color: #6E9610;
 }

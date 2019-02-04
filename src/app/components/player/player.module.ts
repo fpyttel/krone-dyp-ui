@@ -7,6 +7,7 @@ import { PlayerInfoModule } from './player-info/player-info.module';
 import { PlayerScoresModule } from './player-scores/player-scores.module';
 import { PlayerEloHistoryModule } from './player-elo-history/player-elo-history.module';
 import { PlayerScoresHistoryModule } from './player-scores-history/player-scores-history.module';
+import { PlayerTeammatesModule } from './player-teammates/player-teammates.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlayerScoresHistoryModule } from './player-scores-history/player-scores
     PlayerInfoModule,
     PlayerScoresModule,
     PlayerEloHistoryModule,
-    PlayerScoresHistoryModule
+    PlayerScoresHistoryModule,
+    PlayerTeammatesModule
   ],
   exports: [
     PlayerComponent

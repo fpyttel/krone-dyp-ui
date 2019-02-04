@@ -1,8 +1,11 @@
 @import "../../../styles.scss";
 
 .menu {
-    @include mat-elevation(2);
     height: 50px;
+}
+
+.main {
+    background-color: $background-color-default;
 }
 
 .home {

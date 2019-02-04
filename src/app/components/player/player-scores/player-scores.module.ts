@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { PlayerScoresComponent } from './player-scores.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
   imports: [
     CommonModule,
     MatCardModule,
-    GoogleChartsModule.forRoot()
+    GoogleChartsModule.forRoot(),
+    NgxUiLoaderModule
   ],
   exports: [
     PlayerScoresComponent

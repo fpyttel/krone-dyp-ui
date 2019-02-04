@@ -6,6 +6,7 @@ import { Player } from 'src/app/models/player.model';
 import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.reducer';
 import { FetchPlayerScoresHistoryAction } from 'src/app/store/player-charts/player-charts.actions';
 import { GoogleChartComponent } from 'angular-google-charts';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 @Component({
   selector: 'app-player-scores-history',
@@ -28,6 +29,7 @@ export class PlayerScoresHistoryComponent implements OnInit {
   scoresHistoryChartOptions = {
     chartArea: { left: 25, top: 5, bottom: 20, width: '100%', height: '100%' },
     colors: ['#6E9610', '#49600A'],
+    backgroundColor: '#FCFCFC',
     hAxis: {
       baselineColor: 'none',
       textStyle: {
@@ -49,7 +51,8 @@ export class PlayerScoresHistoryComponent implements OnInit {
     legend: 'none'
   };
 
-  constructor(private playerChartsStore: Store<PlayerChartsState>) { }
+  constructor(private playerChartsStore: Store<PlayerChartsState>,
+    private loaderService: NgxUiLoaderService) { }
 
   ngOnInit(): void {
     // load score chart data
@@ -59,6 +62,15 @@ export class PlayerScoresHistoryComponent implements OnInit {
         if (p.scoresHistory && this.chart.wrapper) {
           this.chart.wrapper.setOption('hAxis.viewWindow.min', p.scoresHistory[0][0] - 5);
           this.chart.wrapper.setOption('hAxis.viewWindow.max', p.scoresHistory[p.scoresHistory.length - 1][0] + 5);
+        }
+        if (p.scoresHistory) {
+          this.loaderService.stopLoader('scores-history-loader');
+        } else {
+          try {
+            this.loaderService.startLoader('scores-history-loader');
+          } catch (error) {
+            // don't ask me why
+          }
         }
       });
 

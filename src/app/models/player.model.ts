@@ -13,5 +13,5 @@ export class Player {
     id: number;
     firstName: string;
     lastName: string;
-    stats: PlayerStats;
+    stats?: PlayerStats;
 }

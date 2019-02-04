@@ -1,5 +1,7 @@
 <div class="container">
-    <div class="player-title">{{(player | async)?.firstName}} {{(player | async)?.lastName}}</div>
+    <div class="player-title">Profil von
+        <div class="player-title__name">{{(player | async)?.firstName}} {{(player | async)?.lastName}}</div>
+    </div>
     <div class="row">
         <div class="col-md-6">
             <app-player-info [player]="player | async" class="player-info"></app-player-info>
@@ -10,12 +12,14 @@
     </div>      
     <div class="row">
         <div class="col-md-6">
-            <h4>Elo-Timeline</h4>
+            <div class="info-headline">Elo-Timeline</div>
             <app-player-elo-history [player]="player" class="player-chart"></app-player-elo-history>
         </div>
         <div class="col-md-6">
-            <h4>Platzierungen-Timeline</h4>
+            <div class="info-headline">Platzierungen-Timeline</div>
             <app-player-scores-history [player]="player" class="player-chart"></app-player-scores-history>
         </div>
-    </div> 
+    </div>
+    <div class="info-headline info-headline--teammates">Rangliste der Mitspieler</div>
+    <app-player-teammates [player]="player"></app-player-teammates>
 </div>
