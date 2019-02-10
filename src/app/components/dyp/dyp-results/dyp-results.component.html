@@ -9,12 +9,12 @@
     </mat-form-field>
 </div>
 
-<table mat-table [dataSource]="currentDypResults" class="mat-elevation-z2 dyp-table">
+<table mat-table [dataSource]="currentDypResults" class="mat-elevation-z8 dyp-table">
 <!-- Position Column -->
 <ng-container matColumnDef="position">
     <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__position"> Platz </th>
     <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__position">
-        {{element.position ? element.position : ''}}
+        {{element.position > 0 ? element.position : ''}}
     </td>
 </ng-container>
 
@@ -31,7 +31,7 @@
 <ng-container matColumnDef="forecast">
     <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__forecast"> Platz (Prognose) </th>
     <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__forecast">
-        {{element.forecast}}
+        {{element.forecast}} <i [ngClass]="calcForecastIcon(element)" class="fas forecast-icon"></i>
     </td>
 </ng-container>
 

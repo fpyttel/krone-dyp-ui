@@ -16,6 +16,8 @@ import { PageNotFoundModule } from './components/page-not-found/page-not-found.m
 import { playerChartsReducer } from './store/player-charts/player-charts.reducer';
 import { PlayerChartsEffects } from './store/player-charts/player-charts.effect';
 import { NgxUiLoaderModule, NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION } from 'ngx-ui-loader';
+import { dypChartsReducer } from './store/dyp-charts/dyp-charts.reducer';
+import { DypChartsEffects } from './store/dyp-charts/dyp-charts.effect';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsColor: '#6E9610',
@@ -37,11 +39,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     BrowserAnimationsModule,
     StoreModule.forRoot({
       dyps: dypReducer,
+      dypCharts: dypChartsReducer,
       players: playerReducer,
       playerCharts: playerChartsReducer
     }),
     EffectsModule.forRoot([
       DypEffects,
+      DypChartsEffects,
       PlayerEffects,
       PlayerChartsEffects
     ]),

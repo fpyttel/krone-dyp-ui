@@ -1,0 +1,5 @@
+<div style="position: relative" class="dyp-team-elo">
+    <google-chart [data]="teamEloChartData" [columnNames]="teamEloChartColumnNames" [type]="'BarChart'" [options]="teamEloChartOptions"
+        class="dyp-team-elo" ngxUiLoaderBlurred [loaderId]="'dyp-team-elo-loader'"></google-chart>
+    <ngx-ui-loader [loaderId]="'dyp-team-elo-loader'"></ngx-ui-loader>
+</div>

@@ -17,3 +17,11 @@
         line-height: 1rem;
     }
 }
+
+.info-headline {
+    font-weight: bold;
+    font-size: $headline-size-1;
+    color: $headline;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}

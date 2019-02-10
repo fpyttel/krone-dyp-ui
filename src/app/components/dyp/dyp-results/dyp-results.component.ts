@@ -52,10 +52,23 @@ export class DypResultsComponent implements OnInit {
       if (lastPosition !== element.position) {
         lastPosition = element.position;
       } else {
-        element.position = null;
+        element.position = element.position * -1;
       }
     }
     return dypResults;
+  }
+
+  private calcForecastIcon(element: DypResult): any {
+    const pos = element.position > 0 ? element.position : Math.abs(element.position);
+    const classes = {
+      'fa-chevron-up': element.forecast > pos,
+      'forecast-icon--up': element.forecast > pos,
+      'fa-chevron-down': element.forecast < pos,
+      'forecast-icon--down': element.forecast < pos,
+      'fa-minus': element.forecast === pos,
+      'forecast-icon--same': element.forecast === pos
+    };
+    return classes;
   }
 
 }

@@ -21,4 +21,8 @@ export class DypService {
         return this.http.get<Dyp[]>(`${this.GET_DYP_URL}/list`);
     }
 
+    public getDypTeamElo(id: number): Observable<any> {
+        return this.http.get<any>(`${this.GET_DYP_URL}/${id}/teamElo`);
+    }
+
 }

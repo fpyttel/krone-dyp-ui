@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../../../../styles.scss";
 
 .dyp-results {
     margin-top: 50px;
@@ -34,11 +34,27 @@
     text-align: center;
 }
 
+.forecast-icon {
+    margin-left: .5rem;
+
+    &--up {
+        color: $color-up;
+    }
+
+    &--down {
+        color: $color-down;
+    }
+
+    &--same {
+        color: $color-default;
+    }
+}
+
 .dyp-table {
     width: 100%;
 
     &__header {
-        font-weight: bold;
+        font-weight: 900;
 
         &__position {
             text-align: left;
