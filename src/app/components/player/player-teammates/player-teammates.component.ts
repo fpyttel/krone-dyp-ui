@@ -9,7 +9,7 @@ import { Teammate } from 'src/app/models/teammate.model';
 import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.reducer';
 import { FetchPlayerScoresAction, FetchPlayerTeammatesAction } from 'src/app/store/player-charts/player-charts.actions';
 import { Player } from 'src/app/models/player.model';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-player-teammates',
@@ -20,6 +20,7 @@ export class PlayerTeammatesComponent implements OnInit {
 
   @Input() player: Observable<Player>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   displayedColumns: string[] = ['name', 'wins', 'loss', 'rate'];
   teammates: MatTableDataSource<Teammate[]>;
@@ -32,6 +33,7 @@ export class PlayerTeammatesComponent implements OnInit {
       (playerChartsState => {
         const data = new MatTableDataSource<Teammate[]>(playerChartsState.teammates);
         data.paginator = this.paginator;
+        data.sort = this.sort;
         this.teammates = data;
       }));
     // fetch data
