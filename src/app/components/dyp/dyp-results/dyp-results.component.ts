@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DypResult, Dyp } from 'src/app/models/dyp.model';
 import { DypState } from 'src/app/store/dyp/dyp.reducer';
 import { Store } from '@ngrx/store';
@@ -19,7 +19,8 @@ export class DypResultsComponent implements OnInit {
   selectedDyp: Dyp;
   lastDyp: Dyp;
 
-  constructor(private dypStore: Store<DypState>) { }
+  constructor(private dypStore: Store<DypState>,
+    private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     // load DPY list & select last one
@@ -29,6 +30,7 @@ export class DypResultsComponent implements OnInit {
           this.lastDyp = dypState.lastDyp;
           this.selectedDyp = dypState.lastDyp;
           this.onDypSelected(null);
+          this.changeDetectorRef.detectChanges();
         }
         return dypState.dypList;
       }));
@@ -43,6 +45,10 @@ export class DypResultsComponent implements OnInit {
 
   onDypSelected(event: any): void {
     this.dypStore.dispatch(new FetchDypAction(this.selectedDyp.id));
+  }
+
+  compareDyps(dyp1: any, dyp2: any): boolean {
+    return dyp1.id === dyp2.id;
   }
 
   private filterPositions(dypResults: DypResult[]): DypResult[] {

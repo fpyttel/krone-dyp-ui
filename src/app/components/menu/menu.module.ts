@@ -8,6 +8,7 @@ import { MenuComponent } from './menu.component';
 import { HomeModule } from '../home/home.module';
 import { PlayerModule } from '../player/player.module';
 import { RouterModule } from '@angular/router';
+import { ScoreboardModule } from '../scoreboard/scoreboard.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RouterModule } from '@angular/router';
     MatSidenavModule,
     FlexLayoutModule,
     HomeModule,
-    PlayerModule
+    PlayerModule,
+    ScoreboardModule
   ],
   exports: [
     MenuComponent

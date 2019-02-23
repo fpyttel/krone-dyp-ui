@@ -1,12 +1,14 @@
 import { Action } from '../action';
 import { PlayerChartsActionType } from './player-charts.actions';
 import { Teammate } from 'src/app/models/teammate.model';
+import { Player } from 'src/app/models/player.model';
 
 export interface PlayerChartsState {
     scoreData: any;
     eloHistory: any;
     scoresHistory: any;
     teammates: Teammate[];
+    scoreboard: Player[];
     isLoading: boolean;
     hasError: boolean;
 }
@@ -16,6 +18,7 @@ export const initialState: PlayerChartsState = {
     eloHistory: undefined,
     scoresHistory: undefined,
     teammates: [],
+    scoreboard: [],
     isLoading: false,
     hasError: false
 };
@@ -83,6 +86,25 @@ export function playerChartsReducer(state: PlayerChartsState = initialState, act
             return {
                 ...state,
                 teammates: action.payload,
+                isLoading: false,
+                hasError: false
+            };
+        case PlayerChartsActionType.FETCH_PLAYER_SCOREBOARD:
+            return {
+                ...state,
+                isLoading: true,
+                hasError: false
+            };
+        case PlayerChartsActionType.FETCH_PLAYER_SCOREBOARD_ERROR:
+            return {
+                ...state,
+                isLoading: false,
+                hasError: true
+            };
+        case PlayerChartsActionType.FETCH_PLAYER_SCOREBOARD_SUCCESS:
+            return {
+                ...state,
+                scoreboard: action.payload,
                 isLoading: false,
                 hasError: false
             };

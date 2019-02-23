@@ -1,7 +1,7 @@
 <div class="dyp-title">
     Ergebnisse vom
     <mat-form-field>
-        <mat-select [(value)]="selectedDyp" (selectionChange)="onDypSelected($event)" class="dyp-title__select">
+        <mat-select [(value)]="selectedDyp" (selectionChange)="onDypSelected($event)" [compareWith]="compareDyps" class="dyp-title__select">
             <mat-option *ngFor="let dyp of (dyps | async)" [value]="dyp">
             {{dyp.date}}
             </mat-option>

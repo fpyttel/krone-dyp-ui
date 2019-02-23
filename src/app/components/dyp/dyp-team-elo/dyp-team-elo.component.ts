@@ -30,6 +30,7 @@ export class DypTeamEloComponent implements OnInit {
       baselineColor: 'none',
       textStyle: {
         fontName: 'Helvetica',
+        fontSize: 12,
         bold: true,
         color: '#404040'
       }
@@ -38,6 +39,7 @@ export class DypTeamEloComponent implements OnInit {
       baselineColor: 'none',
       textStyle: {
         fontName: 'Helvetica',
+        fontSize: 12,
         bold: true,
         color: '#404040'
       }
@@ -56,7 +58,11 @@ export class DypTeamEloComponent implements OnInit {
     this.dypChartsStore.select('dypCharts').subscribe(d => {
       this.teamEloChartData = d.teamElo ? d.teamElo : [['', 0, 0]];
       if (d.teamElo) {
-        this.loaderService.stopLoader('dyp-team-elo-loader');
+        try {
+          this.loaderService.stopLoader('dyp-team-elo-loader');
+        } catch (error) {
+          // don't ask me why
+        }
       } else {
         try {
           this.loaderService.startLoader('dyp-team-elo-loader');

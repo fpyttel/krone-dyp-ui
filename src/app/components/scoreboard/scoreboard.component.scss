@@ -1,0 +1,13 @@
+@import "../../../assets/colors.scss";
+
+.scoreboard {
+    min-height: calc(100vh - 50px);
+
+    &__title {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: bold;
+        font-size: 1.7rem;
+        color: $headline;
+    }
+}
