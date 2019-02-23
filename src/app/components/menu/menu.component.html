@@ -8,15 +8,15 @@
 
         <a mat-button class="home" routerLink="/">Krone-DYP</a>
         <span class="fill-remaining-space"></span>
+        <div class="player-search">
+            <input type="text" placeholder="Name || ID" aria-label="Name || ID" matInput [formControl]="playerControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"  (optionSelected)="playerSelected($event.option.value)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option.firstName}} {{option.lastName}}
+                </mat-option>
+            </mat-autocomplete>
+        </div>
         <div fxShow="true" fxHide.lt-md="true">
-            <div class="player-search">
-                <input type="text" placeholder="Spieler" aria-label="Spieler" matInput [formControl]="playerControl" [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"  (optionSelected)="playerSelected($event.option.value)">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                    {{option.firstName}} {{option.lastName}}
-                    </mat-option>
-                </mat-autocomplete>
-            </div>
             <a mat-button routerLink="/">Ergebnisse</a>
             <a mat-button routerLink="/scoreboard">Rangliste</a>
         </div>
