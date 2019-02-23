@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://127.0.0.1:8042/api'
+  apiUrl: 'http://www.krone-dyp.de/api'
 };

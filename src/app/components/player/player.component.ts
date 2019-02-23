@@ -21,7 +21,6 @@ export class PlayerComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log('load player');
     // load player
     this.player = this.playerStore.select('players').pipe(map(
       (playerState: PlayerState) => {
@@ -31,7 +30,6 @@ export class PlayerComponent implements OnInit {
     this.route.params.subscribe(
       (params: any) => {
         this.playerStore.dispatch(new FetchPlayerAction(parseInt(params.id, 10)));
-        console.log('fetch player infos / id = ' + params.id);
       }
     );
   }
