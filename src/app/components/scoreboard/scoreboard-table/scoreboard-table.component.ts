@@ -21,7 +21,7 @@ export class ScoreboardTableComponent implements OnInit {
   constructor(private playerChartsStore: Store<PlayerChartsState>) { }
 
   ngOnInit(): void {
-    // load teammates
+    // load scoreboard
     this.playerChartsStore.select('playerCharts').subscribe(
       (playerChartsState => {
         this.players = new MatTableDataSource<Player[]>(playerChartsState.scoreboard);

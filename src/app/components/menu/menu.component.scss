@@ -38,3 +38,19 @@ button {
 .fill-remaining-space {
     flex: 1 1 auto;
 }
+
+.player-search {
+    display: inline-block;
+    height: 35px;
+    font-size: 1rem;
+    color: $color-default;
+    background-color: $background-highlight;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2px;
+    border-radius: .2rem;
+}
+
+::ng-deep .mat-option-text {
+    text-align: left !important;
+}
