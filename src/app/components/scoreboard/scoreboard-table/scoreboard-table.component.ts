@@ -18,6 +18,9 @@ export class ScoreboardTableComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'stats.points', 'stats.dyps', 'stats.elo'];
   players: MatTableDataSource<Player[]>;
 
+  years = this.getYears();
+  selectedYear = new Date().getFullYear() + '';
+
   constructor(private playerChartsStore: Store<PlayerChartsState>) { }
 
   ngOnInit(): void {
@@ -30,7 +33,15 @@ export class ScoreboardTableComponent implements OnInit {
         this.players.sort = this.sort;
       }));
     // fetch data
-    this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction());
+    this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(null));
+  }
+
+  private getYears(): string[] {
+    const years = ['gesammt'];
+    for (let i = new Date().getFullYear(); i >= 2007; i--) {
+      years.push(i + '');
+    }
+    return years;
   }
 
   private calcElo(elo: number): number {
@@ -40,5 +51,17 @@ export class ScoreboardTableComponent implements OnInit {
   getProperty = (obj, path) => (
     path.split('.').reduce((o, p) => o && o[p], obj)
   )
+
+  onYearSelected(event: any): void {
+    if (this.selectedYear === 'gesammt') {
+      this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(null));
+    } else {
+      this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(Number(this.selectedYear)));
+    }
+  }
+
+  compareDyps(dyp1: any, dyp2: any): boolean {
+    return dyp1.id === dyp2.id;
+  }
 
 }

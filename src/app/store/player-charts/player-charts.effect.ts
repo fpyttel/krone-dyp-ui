@@ -110,7 +110,7 @@ export class PlayerChartsEffects {
             ofType<FetchPlayerScoreboardAction>(PlayerChartsActionType.FETCH_PLAYER_SCOREBOARD),
             debounceTime(debounce, scheduler),
             switchMap(action => {
-                return this.playerService.getScoreboard().pipe(
+                return this.playerService.getScoreboard(action.payload).pipe(
                     map((scoreboard: any) => {
                         return new FetchPlayerScoreboardSuccessAction(scoreboard);
                     })

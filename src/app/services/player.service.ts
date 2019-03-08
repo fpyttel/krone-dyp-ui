@@ -35,8 +35,11 @@ export class PlayerService {
         return this.http.get<Teammate[]>(`${this.GET_PLAYER_URL}/${id}/teammates`);
     }
 
-    public getScoreboard(): Observable<Player[]> {
-        return this.http.get<Player[]>(`${this.GET_PLAYER_URL}/scoreboard`);
+    public getScoreboard(year: number): Observable<Player[]> {
+        if (year === null) {
+            return this.http.get<Player[]>(`${this.GET_PLAYER_URL}/scoreboard`);
+        }
+        return this.http.get<Player[]>(`${this.GET_PLAYER_URL}/scoreboard?year=${year}`);
     }
 
 }

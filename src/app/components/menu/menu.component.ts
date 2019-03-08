@@ -40,7 +40,7 @@ export class MenuComponent implements OnInit {
         this.options = playerChartsState.scoreboard;
       }));
     // fetch data
-    this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction());
+    this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(null));
   }
 
   displayFn(player?: Player): string | undefined {

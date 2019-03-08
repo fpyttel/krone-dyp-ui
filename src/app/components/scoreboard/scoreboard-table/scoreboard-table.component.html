@@ -1,3 +1,15 @@
+
+<div class="scoreboard__title">
+    Rangliste
+    <mat-form-field>
+        <mat-select [(value)]="selectedYear" (selectionChange)="onYearSelected($event)" class="scoreboard__select">
+            <mat-option *ngFor="let year of years" [value]="year">
+            {{year}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
 <table mat-table [dataSource]="players" matSort class="mat-elevation-z8 scoreboard-table">
     <!-- Name Column -->
     <ng-container matColumnDef="firstName">

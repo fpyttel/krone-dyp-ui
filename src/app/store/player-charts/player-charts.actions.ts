@@ -82,7 +82,7 @@ export class FetchPlayerTeammatesSuccessAction implements Action {
 
 export class FetchPlayerScoreboardAction implements Action {
     readonly type = PlayerChartsActionType.FETCH_PLAYER_SCOREBOARD;
-    constructor() {}
+    constructor(public payload: number) {}
 }
 
 export class FetchPlayerScoreboardErrorAction implements Action {
