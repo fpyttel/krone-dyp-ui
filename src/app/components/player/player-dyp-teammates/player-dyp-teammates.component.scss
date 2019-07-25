@@ -1,0 +1,52 @@
+.teammates {
+    margin-top: 50px;
+}
+
+.mat-card-content {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+::ng-deep .teammates-table__header__name .mat-sort-header-container {
+    justify-content: flex-start;
+}
+
+::ng-deep .teammates-table__header__wins .mat-sort-header-container {
+    justify-content: center;
+}
+
+::ng-deep .teammates-table__header__loss .mat-sort-header-container {
+    justify-content: center;
+}
+
+::ng-deep .teammates-table__header__rate .mat-sort-header-container {
+    justify-content: flex-end;
+}
+
+.teammates-table {
+    width: 100%;
+
+    &__header {
+        font-weight: 900;
+    }
+
+    &__item {
+        &__name {
+            text-align: left;
+            font-weight: bold;
+        }
+        
+        &__wins {
+            text-align: center;
+        }
+
+        &__loss {
+            text-align: center;
+        }
+    
+        &__rate {
+            text-align: right;
+        }
+    }
+
+}

@@ -1,6 +1,7 @@
 import { Action } from '../action';
 import { Teammate } from 'src/app/models/teammate.model';
 import { Player } from 'src/app/models/player.model';
+import { DypTeammate } from 'src/app/models/dyp-teammate.model';
 
 export enum PlayerChartsActionType {
     FETCH_PLAYER_SCORES =                   '[Player] Get player scores',
@@ -15,6 +16,9 @@ export enum PlayerChartsActionType {
     FETCH_PLAYER_TEAMMATES =                '[Player] Get player teammates',
     FETCH_PLAYER_TEAMMATES_ERROR =          '[Player] Get player teammates error',
     FETCH_PLAYER_TEAMMATES_SUCCESS =        '[Player] Get player teammates success',
+    FETCH_PLAYER_DYP_TEAMMATES =            '[Player] Get player dyp teammates',
+    FETCH_PLAYER_DYP_TEAMMATES_ERROR =      '[Player] Get player dyp teammates error',
+    FETCH_PLAYER_DYP_TEAMMATES_SUCCESS =    '[Player] Get player dyp teammates success',
     FETCH_PLAYER_SCOREBOARD =               '[Player] Get player scoreboard',
     FETCH_PLAYER_SCOREBOARD_ERROR =         '[Player] Get player scoreboard error',
     FETCH_PLAYER_SCOREBOARD_SUCCESS =       '[Player] Get player scoreboard success'
@@ -80,6 +84,21 @@ export class FetchPlayerTeammatesSuccessAction implements Action {
     constructor(public payload: Teammate[]) {}
 }
 
+export class FetchPlayerDypTeammatesAction implements Action {
+    readonly type = PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES;
+    constructor(public payload: number) {}
+}
+
+export class FetchPlayerDypTeammatesErrorAction implements Action {
+    readonly type = PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES_ERROR;
+    constructor(public payload: Error) {}
+}
+
+export class FetchPlayerDypTeammatesSuccessAction implements Action {
+    readonly type = PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES_SUCCESS;
+    constructor(public payload: DypTeammate[]) {}
+}
+
 export class FetchPlayerScoreboardAction implements Action {
     readonly type = PlayerChartsActionType.FETCH_PLAYER_SCOREBOARD;
     constructor(public payload: number) {}
@@ -108,6 +127,9 @@ export type PlayerChartsActions =
     | FetchPlayerTeammatesAction
     | FetchPlayerTeammatesErrorAction
     | FetchPlayerTeammatesSuccessAction
+    | FetchPlayerDypTeammatesAction
+    | FetchPlayerDypTeammatesErrorAction
+    | FetchPlayerDypTeammatesSuccessAction
     | FetchPlayerScoreboardAction
     | FetchPlayerScoreboardErrorAction
     | FetchPlayerScoreboardSuccessAction;

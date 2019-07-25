@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Dyp } from '../models/dyp.model';
+import { Dyp, DypStatistic } from '../models/dyp.model';
 import { BASE_URL } from './constants';
 import { HttpClient } from '@angular/common/http';
 
@@ -23,6 +23,10 @@ export class DypService {
 
     public getDypTeamElo(id: number): Observable<any> {
         return this.http.get<any>(`${this.GET_DYP_URL}/${id}/teamElo`);
+    }
+
+    public getDypStatistic(id: number): Observable<DypStatistic> {
+        return this.http.get<any>(`${this.GET_DYP_URL}/${id}/stats`);
     }
 
 }

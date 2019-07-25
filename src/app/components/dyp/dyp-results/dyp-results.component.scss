@@ -97,3 +97,22 @@
     }
 
 }
+
+.stats {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+    text-align: center;
+
+    &__title {
+        color: $color-default-light;
+        font-size: 0.8rem;
+        line-height: 1rem;
+        font-weight: bold;
+    }
+
+    &__description {
+        color: $color-default-light;
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+}

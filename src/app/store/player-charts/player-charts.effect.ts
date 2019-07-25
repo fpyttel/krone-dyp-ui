@@ -20,7 +20,10 @@ import {
     FetchPlayerTeammatesErrorAction,
     FetchPlayerScoreboardAction,
     FetchPlayerScoreboardSuccessAction,
-    FetchPlayerScoreboardErrorAction} from './player-charts.actions';
+    FetchPlayerScoreboardErrorAction,
+    FetchPlayerDypTeammatesAction,
+    FetchPlayerDypTeammatesSuccessAction,
+    FetchPlayerDypTeammatesErrorAction} from './player-charts.actions';
 
 @Injectable()
 export class PlayerChartsEffects {
@@ -99,6 +102,24 @@ export class PlayerChartsEffects {
                 );
             }),
             catchError(err => of(new FetchPlayerTeammatesErrorAction(err)))
+        )
+
+    @Effect()
+    fetchPlayerDypTeammates$ = ({
+        debounce = 300,
+        scheduler = asyncScheduler
+    } = {}): Observable<Action> =>
+        this.actions$.pipe(
+            ofType<FetchPlayerDypTeammatesAction>(PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES),
+            debounceTime(debounce, scheduler),
+            switchMap(action => {
+                return this.playerService.getPlayerDypTeammates(action.payload).pipe(
+                    map((teammateData: any) => {
+                        return new FetchPlayerDypTeammatesSuccessAction(teammateData);
+                    })
+                );
+            }),
+            catchError(err => of(new FetchPlayerDypTeammatesErrorAction(err)))
         )
 
     @Effect()

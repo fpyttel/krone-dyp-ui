@@ -1,0 +1,43 @@
+<table mat-table [dataSource]="dypTeammates" matSort class="mat-elevation-z8 teammates-table">
+
+    <!-- Mate Column -->
+    <ng-container matColumnDef="mate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__loss"> Mitspieler </th>
+        <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__name">
+            <a routerLink="/player/{{element.mateId}}">{{element.firstName}} {{element.lastName}}</a>
+        </td>
+    </ng-container>
+
+    <!-- Dyp Column -->
+    <ng-container matColumnDef="dyp">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__name"> DYP </th>
+        <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__loss">
+            {{element.dypId}}
+        </td>
+    </ng-container>
+
+    <!-- Date Column -->
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__wins"> Datum </th>
+        <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__wins">
+            {{element.date}}
+        </td>
+    </ng-container>
+    
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__rate"> Platz </th>
+        <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__rate">
+            {{element.position}}
+        </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator
+        [pageSize]="5"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons>
+</mat-paginator>

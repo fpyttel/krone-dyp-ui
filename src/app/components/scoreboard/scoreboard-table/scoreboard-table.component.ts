@@ -33,11 +33,11 @@ export class ScoreboardTableComponent implements OnInit {
         this.players.sort = this.sort;
       }));
     // fetch data
-    this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(null));
+    this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(new Date().getFullYear()));
   }
 
   private getYears(): string[] {
-    const years = ['gesammt'];
+    const years = ['gesamt'];
     for (let i = new Date().getFullYear(); i >= 2007; i--) {
       years.push(i + '');
     }
@@ -53,7 +53,7 @@ export class ScoreboardTableComponent implements OnInit {
   )
 
   onYearSelected(event: any): void {
-    if (this.selectedYear === 'gesammt') {
+    if (this.selectedYear === 'gesamt') {
       this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(null));
     } else {
       this.playerChartsStore.dispatch(new FetchPlayerScoreboardAction(Number(this.selectedYear)));

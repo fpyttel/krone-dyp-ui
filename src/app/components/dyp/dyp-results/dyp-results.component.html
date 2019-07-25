@@ -46,3 +46,17 @@
 <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<div *ngIf="(currentDypStatistic | async) != undefined" class="row stats">
+        <div class="col-md-2 stats__title">ELO-Durchschnitt</div>
+        <div class="col-md-1 stats__description">{{(currentDypStatistic | async)!.avgElo}}</div>
+
+        <div class="col-md-2 stats__title">ELO-Median</div>
+        <div class="col-md-1 stats__description">{{(currentDypStatistic | async)!.medianPlayerElo}}</div>
+
+        <div class="col-md-2 stats__title">ELO-Diff-Team</div>
+        <div class="col-md-1 stats__description">{{(currentDypStatistic | async)!.avgEloDiff}}</div>
+
+        <div class="col-md-2 stats__title">Gleichgewicht</div>
+        <div class="col-md-1 stats__description">{{calcRate((currentDypStatistic | async)!.balanceRatio)}}%</div>
+</div>

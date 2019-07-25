@@ -1,10 +1,12 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DypResult, Dyp } from 'src/app/models/dyp.model';
+import { DypResult, Dyp, DypStatistic } from 'src/app/models/dyp.model';
 import { DypState } from 'src/app/store/dyp/dyp.reducer';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { FetchDypAction, FetchDypListAction } from 'src/app/store/dyp/dyp.actions';
+import { FetchDypStatsAction } from 'src/app/store/dyp-charts/dyp-charts.actions';
+import { DypChartsState } from 'src/app/store/dyp-charts/dyp-charts.reducer';
 
 @Component({
   selector: 'app-dyp-results',
@@ -15,11 +17,13 @@ export class DypResultsComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'forecast', 'points'];
   currentDypResults: Observable<DypResult[]>;
+  currentDypStatistic: Observable<DypStatistic>;
   dyps: Observable<Dyp[]>;
   selectedDyp: Dyp;
   lastDyp: Dyp;
 
   constructor(private dypStore: Store<DypState>,
+    private dypChartsStore: Store<DypChartsState>,
     private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
@@ -34,17 +38,23 @@ export class DypResultsComponent implements OnInit {
         }
         return dypState.dypList;
       }));
+    // load dyp statistic
+    this.currentDypStatistic = this.dypChartsStore.select('dypCharts').pipe(
+      map(dypChartState => {
+      return dypChartState.dypStatistic;
+    }));
     // load & set current DYP
     this.currentDypResults = this.dypStore.select('dyps').pipe(
       map(dypState => {
         return dypState.dyp ? this.filterPositions(dypState.dyp.results) : null;
-      }));
+    }));
     // load DYP list
     this.dypStore.dispatch(new FetchDypListAction());
   }
 
   onDypSelected(event: any): void {
     this.dypStore.dispatch(new FetchDypAction(this.selectedDyp.id));
+    this.dypChartsStore.dispatch(new FetchDypStatsAction(this.selectedDyp.id));
   }
 
   compareDyps(dyp1: any, dyp2: any): boolean {
@@ -75,6 +85,10 @@ export class DypResultsComponent implements OnInit {
       'forecast-icon--same': element.forecast === pos
     };
     return classes;
+  }
+
+  public calcRate(rate: number): number {
+    return Math.round(rate * 100);
   }
 
 }

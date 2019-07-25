@@ -5,6 +5,7 @@ import { BASE_URL } from './constants';
 import { HttpClient } from '@angular/common/http';
 import { Player } from '../models/player.model';
 import { Teammate } from '../models/teammate.model';
+import { DypTeammate } from '../models/dyp-teammate.model';
 
 @Injectable({
     providedIn: 'root'
@@ -33,6 +34,10 @@ export class PlayerService {
 
     public getPlayerTeammates(id: number): Observable<any> {
         return this.http.get<Teammate[]>(`${this.GET_PLAYER_URL}/${id}/teammates`);
+    }
+
+    public getPlayerDypTeammates(id: number): Observable<any> {
+        return this.http.get<DypTeammate[]>(`${this.GET_PLAYER_URL}/${id}/dyps`);
     }
 
     public getScoreboard(year: number): Observable<Player[]> {

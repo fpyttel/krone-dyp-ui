@@ -20,6 +20,16 @@
             <app-player-scores-history [player]="player" class="player-chart"></app-player-scores-history>
         </div>
     </div>
-    <div class="info-headline info-headline--teammates">Rangliste der Mitspieler</div>
-    <app-player-teammates [player]="player"></app-player-teammates>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="info-headline info-headline--teammates">Rangliste der Mitspieler</div>
+            <app-player-teammates [player]="player"></app-player-teammates>
+        </div>
+    
+        <div class="col-md-6">
+            <div class="info-headline info-headline--teammates">Teilnahmen</div>
+            <app-player-dyp-teammates [player]="player"></app-player-dyp-teammates>
+        </div>
+    </div>
 </div>

@@ -2,12 +2,14 @@ import { Action } from '../action';
 import { PlayerChartsActionType } from './player-charts.actions';
 import { Teammate } from 'src/app/models/teammate.model';
 import { Player } from 'src/app/models/player.model';
+import { DypTeammate } from 'src/app/models/dyp-teammate.model';
 
 export interface PlayerChartsState {
     scoreData: any;
     eloHistory: any;
     scoresHistory: any;
     teammates: Teammate[];
+    dypTeammates: DypTeammate[];
     scoreboard: Player[];
     isLoading: boolean;
     hasError: boolean;
@@ -18,6 +20,7 @@ export const initialState: PlayerChartsState = {
     eloHistory: undefined,
     scoresHistory: undefined,
     teammates: [],
+    dypTeammates: [],
     scoreboard: [],
     isLoading: false,
     hasError: false
@@ -26,6 +29,12 @@ export const initialState: PlayerChartsState = {
 export function playerChartsReducer(state: PlayerChartsState = initialState, action: Action): PlayerChartsState {
     switch (action.type) {
         case PlayerChartsActionType.FETCH_PLAYER_TEAMMATES:
+            return {
+                ...state,
+                isLoading: true,
+                hasError: false
+            };
+        case PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES:
             return {
                 ...state,
                 isLoading: true,
@@ -56,6 +65,7 @@ export function playerChartsReducer(state: PlayerChartsState = initialState, act
         case PlayerChartsActionType.FETCH_PLAYER_ELO_HISTORY_ERROR:
         case PlayerChartsActionType.FETCH_PLAYER_SCORES_HISTORY_ERROR:
         case PlayerChartsActionType.FETCH_PLAYER_TEAMMATES_ERROR:
+        case PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES_ERROR:
             return {
                 ...state,
                 isLoading: false,
@@ -86,6 +96,13 @@ export function playerChartsReducer(state: PlayerChartsState = initialState, act
             return {
                 ...state,
                 teammates: action.payload,
+                isLoading: false,
+                hasError: false
+            };
+        case PlayerChartsActionType.FETCH_PLAYER_DYP_TEAMMATES_SUCCESS:
+            return {
+                ...state,
+                dypTeammates: action.payload,
                 isLoading: false,
                 hasError: false
             };

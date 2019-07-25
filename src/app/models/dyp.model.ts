@@ -22,3 +22,13 @@ export class Dyp {
     date: string;
     results?: DypResult[];
 }
+
+export class DypStatistic {
+    avgEloDiff: number;
+    avgElo: number;
+    medianPlayerElo: number;
+    medianTeamElo: number;
+    teamsBalanced: number;
+    teamsUnbalanced: number;
+    balanceRatio: number;
+}
