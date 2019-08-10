@@ -48,15 +48,23 @@
 </table>
 
 <div *ngIf="(currentDypStatistic | async) != undefined" class="row stats">
-        <div class="col-md-2 stats__title">ELO-Durchschnitt</div>
-        <div class="col-md-1 stats__description">{{(currentDypStatistic | async)!.avgElo}}</div>
+        <div class="col-md-3">
+            <div class="stats__title">ELO-Durchschnitt</div>
+            <div class="stats__description">{{(currentDypStatistic | async)!.avgElo}}</div>
+        </div>
 
-        <div class="col-md-2 stats__title">ELO-Median</div>
-        <div class="col-md-1 stats__description">{{(currentDypStatistic | async)!.medianPlayerElo}}</div>
+        <div class="col-md-3">
+            <div class="stats__title">ELO-Median</div>
+            <div class="stats__description">{{(currentDypStatistic | async)!.medianPlayerElo}}</div>
+        </div>
 
-        <div class="col-md-2 stats__title">ELO-Diff-Team</div>
-        <div class="col-md-1 stats__description">{{(currentDypStatistic | async)!.avgEloDiff}}</div>
-
-        <div class="col-md-2 stats__title">Gleichgewicht</div>
-        <div class="col-md-1 stats__description">{{calcRate((currentDypStatistic | async)!.balanceRatio)}}%</div>
+        <div class="col-md-3">
+            <div class="stats__title">ELO-Diff-Team</div>
+            <div class="stats__description">{{(currentDypStatistic | async)!.avgEloDiff}}</div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="stats__title">Gleichgewicht</div>
+            <div class="stats__description">{{calcRate((currentDypStatistic | async)!.balanceRatio)}}%</div>
+        </div>
 </div>
