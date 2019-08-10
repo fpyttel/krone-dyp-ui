@@ -24,7 +24,7 @@ export class PlayerScoresComponent implements OnInit {
   ];
 
   scoreChartOptions = {
-    chartArea: { left: 60, top: 0, bottom: 20, width: '100%', height: '100%' },
+    chartArea: { left: 75, top: 0, bottom: 20, width: '100%', height: '100%' },
     hAxis: {
       baselineColor: 'none',
       textStyle: {
