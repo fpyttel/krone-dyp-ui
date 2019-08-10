@@ -33,7 +33,7 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     // configure language selector
-    this.selectedLang = this.translate.getDefaultLang();
+    this.selectedLang = this.translate.getBrowserLang();
 
     // configure controller
     this.filteredOptions = this.playerControl.valueChanges.pipe(
