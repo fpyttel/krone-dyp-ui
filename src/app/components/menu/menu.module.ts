@@ -18,7 +18,8 @@ import {
   MatSidenavModule,
   MatInputModule,
   MatAutocompleteModule,
-  MatFormFieldModule } from '@angular/material';
+  MatFormFieldModule,
+  MatSelectModule} from '@angular/material';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { TranslateModule } from '@ngx-translate/core';
     MatInputModule,
     MatAutocompleteModule,
     MatFormFieldModule,
+    MatSelectModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     HomeModule,

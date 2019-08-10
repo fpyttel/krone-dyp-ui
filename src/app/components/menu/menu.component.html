@@ -20,7 +20,12 @@
             <a mat-button routerLink="/">{{'menu.results' | translate}}</a>
             <a mat-button routerLink="/scoreboard">{{'menu.leaderboard' | translate}}</a>
         </div>
-
+        <mat-form-field class="lang">
+            <mat-select [(value)]="selectedLang" (selectionChange)="languageSelected()" class="lang__box">
+                <mat-option value="de" class="lang__option">DE</mat-option>
+                <mat-option value="en" class="lang__option">EN</mat-option>
+            </mat-select>
+        </mat-form-field>
     </mat-toolbar>
     <mat-sidenav-container fxFlexFill>
         <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">

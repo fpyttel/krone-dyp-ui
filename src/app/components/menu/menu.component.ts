@@ -24,6 +24,7 @@ export class MenuComponent implements OnInit {
   ];
 
   filteredOptions: Observable<Player[]>;
+  selectedLang;
 
   constructor(
     private translate: TranslateService,
@@ -31,6 +32,9 @@ export class MenuComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    // configure language selector
+    this.selectedLang = this.translate.getDefaultLang();
+
     // configure controller
     this.filteredOptions = this.playerControl.valueChanges.pipe(
       startWith<string | Player>(''),
@@ -53,6 +57,10 @@ export class MenuComponent implements OnInit {
   playerSelected(selectedPlayer: Player): void {
     this.router.navigate(['/player', selectedPlayer.id]);
     this.playerControl.setValue('');
+  }
+
+  languageSelected(): void {
+    this.translate.use(this.selectedLang);
   }
 
   private _filter(value: string): Player[] {
