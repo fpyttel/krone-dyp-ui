@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { MatCardModule } from '@angular/material/card';
 import { DypResultsModule } from '../dyp/dyp-results/dyp-results.module';
 import { DypTeamEloModule } from '../dyp/dyp-team-elo/dyp-team-elo.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { DypTeamEloModule } from '../dyp/dyp-team-elo/dyp-team-elo.module';
   imports: [
     MatCardModule,
     DypResultsModule,
-    DypTeamEloModule
+    DypTeamEloModule,
+    TranslateModule
   ],
   exports: [
     HomeComponent

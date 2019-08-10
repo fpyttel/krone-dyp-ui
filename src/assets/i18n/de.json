@@ -1,0 +1,66 @@
+{
+    "menu": {
+        "results": "Ergebnisse",
+        "leaderboard": "Rangliste"
+    },
+    "home": {
+        "title": "Kickern in der goldenen Krone Darmstadt",
+        "when": "Wann",
+        "when-text": "jeden Donnerstag",
+        "registration": "Anmeldung",
+        "registration-text": "ab 19:30 Uhr",
+        "begin": "Beginn",
+        "begin-text": "20:15 Uhr"
+    },
+    "dyp": {
+        "results": "Ergebnisse vom",
+        "position": "Platz",
+        "player": "Spieler",
+        "forecast": "Platz (Prognose)",
+        "points": "Punkte",
+        "elo-avg": "ELO-Durchschnitt",
+        "elo-median": "ELO-Median",
+        "elo-diff-team": "ELO-Diff-Team",
+        "balance": "Gleichgewicht"
+    },
+    "leaderboard": {
+        "title": "Rangliste",
+        "player": "Spieler",
+        "points": "Punkte",
+        "dyps": "DYP's",
+        "elo": "ELO"
+    },
+    "player": {
+        "profile": "Profil von",
+        "position": "Platz",
+        "info": {
+            "elo-skill": "Elo-Skill",
+            "last-participation": "Letzte Teilnahme",
+            "participations": "Teilnahmen gesamt",
+            "points": "Punkte",
+            "matches": "Anzahl Spiele",
+            "win": "Gewonnene Spiele",
+            "loss": "Verlorene Spiele",
+            "effectivity": "Effektivität"
+        },
+        "elo-timeline": {
+            "title": "Elo-Timeline"
+        },
+        "position-timeline": {
+            "title": "Platzierungen-Timeline"
+        },
+        "leaderboard-teammates": {
+            "title": "Rangliste der Mitspieler",
+            "teammate": "Mitspieler",
+            "win": "Siege",
+            "loss": "Niederlagen",
+            "rate": "Quote"
+        },
+        "participation": {
+            "title": "Teilnahmen",
+            "teammate": "Mitspieler",
+            "date": "Datum",
+            "position": "Platz"
+        }
+    }
+}

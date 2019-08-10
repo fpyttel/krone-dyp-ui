@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Player } from 'src/app/models/player.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-player-info',
@@ -9,6 +10,8 @@ import { Player } from 'src/app/models/player.model';
 export class PlayerInfoComponent implements OnInit {
 
   @Input() player: Player;
+
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
   }

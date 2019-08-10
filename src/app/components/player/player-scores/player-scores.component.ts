@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {Observable} from 'rxjs';
-import { map, filter, switchMap } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
 import { Player } from 'src/app/models/player.model';
 import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.reducer';
 import { FetchPlayerScoresAction } from 'src/app/store/player-charts/player-charts.actions';
@@ -15,6 +15,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class PlayerScoresComponent implements OnInit {
 
   @Input() player: Observable<Player>;
+  @Input() label: string;
 
   scoreChartData;
 
@@ -46,7 +47,8 @@ export class PlayerScoresComponent implements OnInit {
     legend: 'none'
   };
 
-  constructor(private playerChartsStore: Store<PlayerChartsState>,
+  constructor(
+    private playerChartsStore: Store<PlayerChartsState>,
     private loaderService: NgxUiLoaderService) { }
 
   ngOnInit(): void {
@@ -75,7 +77,7 @@ export class PlayerScoresComponent implements OnInit {
     if (scoreData) {
       scoreData.forEach(element => {
         if (element && element[0].endsWith('.')) {
-          element[0] += ' Platz';
+          element[0] += ' ' + this.label;
         }
       });
     }

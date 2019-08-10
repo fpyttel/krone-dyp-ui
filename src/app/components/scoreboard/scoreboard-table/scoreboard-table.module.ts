@@ -5,6 +5,7 @@ import { MatTableModule, MatSelectModule, MatPaginatorModule, MatSortModule } fr
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ScoreboardTableComponent } from './scoreboard-table.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ScoreboardTableComponent } from './scoreboard-table.component';
     MatTableModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    TranslateModule
   ],
   exports: [
     ScoreboardTableComponent

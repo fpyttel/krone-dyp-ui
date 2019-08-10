@@ -2,7 +2,7 @@
 
     <!-- Mate Column -->
     <ng-container matColumnDef="mate">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__loss"> Mitspieler </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__name"> {{'player.participation.teammate' | translate}} </th>
         <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__name">
             <a routerLink="/player/{{element.mateId}}">{{element.firstName}} {{element.lastName}}</a>
         </td>
@@ -18,7 +18,7 @@
 
     <!-- Date Column -->
     <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__wins"> Datum </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__wins"> {{'player.participation.date' | translate}} </th>
         <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__wins">
             {{element.date}}
         </td>
@@ -26,7 +26,7 @@
     
     <!-- Position Column -->
     <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__rate"> Platz </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header class="teammates-table__header teammates-table__header__rate"> {{'player.participation.position' | translate}} </th>
         <td mat-cell *matCellDef="let element" class="teammates-table__item teammates-table__item__rate">
             {{element.position}}
         </td>

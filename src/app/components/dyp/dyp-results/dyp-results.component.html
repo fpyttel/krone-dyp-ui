@@ -1,5 +1,5 @@
 <div class="dyp-title">
-    Ergebnisse vom
+    {{'dyp.results' | translate}}
     <mat-form-field>
         <mat-select [(value)]="selectedDyp" (selectionChange)="onDypSelected($event)" [compareWith]="compareDyps" class="dyp-title__select">
             <mat-option *ngFor="let dyp of (dyps | async)" [value]="dyp">
@@ -12,7 +12,7 @@
 <table mat-table [dataSource]="currentDypResults" class="mat-elevation-z8 dyp-table">
 <!-- Position Column -->
 <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__position"> Platz </th>
+    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__position"> {{'dyp.position' | translate}} </th>
     <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__position">
         {{element.position > 0 ? element.position : ''}}
     </td>
@@ -20,7 +20,7 @@
 
 <!-- Name Column -->
 <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__name"> Spieler </th>
+    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__name"> {{'dyp.player' | translate}} </th>
     <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__name">
         <a routerLink="/player/{{element.team.player1.id}}">{{element.team.player1.firstName}} {{element.team.player1.lastName}}</a>
         <br><a routerLink="/player/{{element.team.player2.id}}">{{element.team.player2.firstName}} {{element.team.player2.lastName}}</a>
@@ -29,7 +29,7 @@
 
 <!-- Forecast Column -->
 <ng-container matColumnDef="forecast">
-    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__forecast"> Platz (Prognose) </th>
+    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__forecast"> {{'dyp.forecast' | translate}} </th>
     <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__forecast">
         {{element.forecast}} <i [ngClass]="calcForecastIcon(element)" class="fas forecast-icon"></i>
     </td>
@@ -37,7 +37,7 @@
 
 <!-- Points Column -->
 <ng-container matColumnDef="points">
-    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__points"> Punkte </th>
+    <th mat-header-cell *matHeaderCellDef class="dyp-table__header dyp-table__header__points"> {{'dyp.points' | translate}} </th>
     <td mat-cell *matCellDef="let element" class="dyp-table__item dyp-table__item__points">
         {{element.points}}
     </td>
@@ -49,22 +49,22 @@
 
 <div *ngIf="(currentDypStatistic | async) != undefined" class="row stats">
         <div class="col-md-3">
-            <div class="stats__title">ELO-Durchschnitt</div>
+            <div class="stats__title">{{'dyp.elo-avg' | translate}}</div>
             <div class="stats__description">{{(currentDypStatistic | async)!.avgElo}}</div>
         </div>
 
         <div class="col-md-3">
-            <div class="stats__title">ELO-Median</div>
+            <div class="stats__title">{{'dyp.elo-median' | translate}}</div>
             <div class="stats__description">{{(currentDypStatistic | async)!.medianPlayerElo}}</div>
         </div>
 
         <div class="col-md-3">
-            <div class="stats__title">ELO-Diff-Team</div>
+            <div class="stats__title">{{'dyp.elo-diff-team' | translate}}</div>
             <div class="stats__description">{{(currentDypStatistic | async)!.avgEloDiff}}</div>
         </div>
         
         <div class="col-md-3">
-            <div class="stats__title">Gleichgewicht</div>
+            <div class="stats__title">{{'dyp.balance' | translate}}</div>
             <div class="stats__description">{{calcRate((currentDypStatistic | async)!.balanceRatio)}}%</div>
         </div>
 </div>

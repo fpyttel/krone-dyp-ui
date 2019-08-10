@@ -6,6 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map, switchMap, filter } from 'rxjs/operators';
 import { FetchPlayerAction } from 'src/app/store/player/player.actions';
 import { ParamMap, ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-player',
@@ -17,6 +18,7 @@ export class PlayerComponent implements OnInit {
   player: Observable<Player>;
 
   constructor(
+    private translate: TranslateService,
     private playerStore: Store<PlayerState>,
     private route: ActivatedRoute) { }
 

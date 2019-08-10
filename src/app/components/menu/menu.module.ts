@@ -19,6 +19,7 @@ import {
   MatInputModule,
   MatAutocompleteModule,
   MatFormFieldModule } from '@angular/material';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {
     PlayerModule,
     ScoreboardModule,
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TranslateModule
   ],
   exports: [
     MenuComponent

@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="player-title">Profil von
+    <div class="player-title">{{ 'player.profile' | translate }}
         <div class="player-title__name">{{(player | async)?.firstName}} {{(player | async)?.lastName}}</div>
     </div>
     <div class="row">
@@ -7,28 +7,28 @@
             <app-player-info [player]="player | async" class="player-info"></app-player-info>
         </div>
         <div class="col-md-6">
-            <app-player-scores [player]="player" class="player-chart"></app-player-scores>
+            <app-player-scores [player]="player" [label]="'player.position' | translate" class="player-chart"></app-player-scores>
         </div>
     </div>      
     <div class="row">
         <div class="col-md-6">
-            <div class="info-headline">Elo-Timeline</div>
+            <div class="info-headline">{{ 'player.elo-timeline.title' | translate }}</div>
             <app-player-elo-history [player]="player" class="player-chart"></app-player-elo-history>
         </div>
         <div class="col-md-6">
-            <div class="info-headline">Platzierungen-Timeline</div>
+            <div class="info-headline">{{ 'player.position-timeline.title' | translate }}</div>
             <app-player-scores-history [player]="player" class="player-chart"></app-player-scores-history>
         </div>
     </div>
 
     <div class="row">
         <div class="col-md-6">
-            <div class="info-headline info-headline--teammates">Rangliste der Mitspieler</div>
+            <div class="info-headline info-headline--teammates">{{ 'player.leaderboard-teammates.title' | translate }}</div>
             <app-player-teammates [player]="player"></app-player-teammates>
         </div>
     
         <div class="col-md-6">
-            <div class="info-headline info-headline--teammates">Teilnahmen</div>
+            <div class="info-headline info-headline--teammates">{{ 'player.participation.title' | translate }}</div>
             <app-player-dyp-teammates [player]="player"></app-player-dyp-teammates>
         </div>
     </div>

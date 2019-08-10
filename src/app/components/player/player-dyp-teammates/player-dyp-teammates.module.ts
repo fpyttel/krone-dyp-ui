@@ -5,6 +5,7 @@ import { MatTableModule, MatSelectModule, MatPaginatorModule, MatSortModule } fr
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PlayerDypTeammatesComponent } from './player-dyp-teammates.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PlayerDypTeammatesComponent } from './player-dyp-teammates.component';
     MatTableModule,
     MatSelectModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    TranslateModule
   ],
   exports: [
     PlayerDypTeammatesComponent

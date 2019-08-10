@@ -9,6 +9,7 @@ import { PlayerEloHistoryModule } from './player-elo-history/player-elo-history.
 import { PlayerScoresHistoryModule } from './player-scores-history/player-scores-history.module';
 import { PlayerTeammatesModule } from './player-teammates/player-teammates.module';
 import { PlayerDypTeammatesModule } from './player-dyp-teammates/player-dyp-teammates.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PlayerDypTeammatesModule } from './player-dyp-teammates/player-dyp-team
     PlayerEloHistoryModule,
     PlayerScoresHistoryModule,
     PlayerTeammatesModule,
-    PlayerDypTeammatesModule
+    PlayerDypTeammatesModule,
+    TranslateModule
   ],
   exports: [
     PlayerComponent

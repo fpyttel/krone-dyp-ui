@@ -1,0 +1,66 @@
+{
+    "menu": {
+        "results": "Results",
+        "leaderboard": "Leaderboard"
+    },
+    "home": {
+        "title": "Table soccer in the Golden Crown Darmstadt",
+        "when": "When",
+        "when-text": "every Thursday",
+        "registration": "Registration",
+        "registration-text": "from 19:30 hrs",
+        "begin": "Begin",
+        "begin-text": "20:15 hrs"
+    },
+    "dyp": {
+        "results": "Results of ",
+        "position": "Rank",
+        "player": "Player",
+        "forecast": "Rank (Forecast)",
+        "points": "Points",
+        "elo-avg": "ELO-Average",
+        "elo-median": "ELO-Median",
+        "elo-diff-team": "ELO-Diff-Team",
+        "balance": "Balance"
+    },
+    "leaderboard": {
+        "title": "Leaderboard",
+        "player": "Player",
+        "points": "Points",
+        "dyps": "DYP's",
+        "elo": "ELO"
+    },
+    "player": {
+        "profile": "Profile of",
+        "position": "Rank",
+        "info": {
+            "elo-skill": "Elo-Skill",
+            "last-participation": "Last participation",
+            "participations": "Participations",
+            "points": "Points",
+            "matches": "Matches",
+            "win": "Matches won",
+            "loss": "Matches loss",
+            "effectivity": "Effectivity"
+        },
+        "elo-timeline": {
+            "title": "Elo-Timeline"
+        },
+        "position-timeline": {
+            "title": "Rank-Timeline"
+        },
+        "leaderboard-teammates": {
+            "title": "Leaderboard of Teammates",
+            "teammate": "Teammate",
+            "win": "Wins",
+            "loss": "Loss",
+            "rate": "Rate"
+        },
+        "participation": {
+            "title": "Participation",
+            "teammate": "Teammate",
+            "date": "Date",
+            "position": "Rank"
+        }
+    }
+}

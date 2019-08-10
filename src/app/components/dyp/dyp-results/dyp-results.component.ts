@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { FetchDypAction, FetchDypListAction } from 'src/app/store/dyp/dyp.actions';
 import { FetchDypStatsAction } from 'src/app/store/dyp-charts/dyp-charts.actions';
 import { DypChartsState } from 'src/app/store/dyp-charts/dyp-charts.reducer';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dyp-results',
@@ -22,7 +23,9 @@ export class DypResultsComponent implements OnInit {
   selectedDyp: Dyp;
   lastDyp: Dyp;
 
-  constructor(private dypStore: Store<DypState>,
+  constructor(
+    private translate: TranslateService,
+    private dypStore: Store<DypState>,
     private dypChartsStore: Store<DypChartsState>,
     private changeDetectorRef: ChangeDetectorRef) { }
 

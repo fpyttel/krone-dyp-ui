@@ -7,6 +7,7 @@ import { FetchPlayerDypTeammatesAction } from 'src/app/store/player-charts/playe
 import { Player } from 'src/app/models/player.model';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { DypTeammate } from 'src/app/models/dyp-teammate.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-player-dyp-teammates',
@@ -22,7 +23,9 @@ export class PlayerDypTeammatesComponent implements OnInit {
   displayedColumns: string[] = ['mate', 'date', 'position'];
   dypTeammates: MatTableDataSource<DypTeammate[]>;
 
-  constructor(private playerChartsStore: Store<PlayerChartsState>) { }
+  constructor(
+    private translate: TranslateService,
+    private playerChartsStore: Store<PlayerChartsState>) { }
 
   ngOnInit(): void {
     // load dyp teammates

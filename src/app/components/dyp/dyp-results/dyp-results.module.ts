@@ -5,6 +5,7 @@ import { DypResultsComponent } from './dyp-results.component';
 import { MatTableModule, MatSelectModule } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     MatCardModule,
     MatTableModule,
-    MatSelectModule
+    MatSelectModule,
+    TranslateModule
   ],
   exports: [
     DypResultsComponent

@@ -7,6 +7,7 @@ import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.red
 import { Store } from '@ngrx/store';
 import { FetchPlayerScoreboardAction } from 'src/app/store/player-charts/player-charts.actions';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-menu',
@@ -24,7 +25,9 @@ export class MenuComponent implements OnInit {
 
   filteredOptions: Observable<Player[]>;
 
-  constructor(private playerChartsStore: Store<PlayerChartsState>,
+  constructor(
+    private translate: TranslateService,
+    private playerChartsStore: Store<PlayerChartsState>,
     private router: Router) { }
 
   ngOnInit(): void {

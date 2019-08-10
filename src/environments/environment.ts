@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl: 'http://localhost:8043/api'
-  apiUrl: 'https://www.krone-dyp.de/api'
+  apiUrl: 'http://localhost:8043/api'
+  //apiUrl: 'https://www.krone-dyp.de/api'
 };
 
 /*

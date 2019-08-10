@@ -17,16 +17,16 @@
             </mat-autocomplete>
         </div>
         <div fxShow="true" fxHide.lt-md="true">
-            <a mat-button routerLink="/">Ergebnisse</a>
-            <a mat-button routerLink="/scoreboard">Rangliste</a>
+            <a mat-button routerLink="/">{{'menu.results' | translate}}</a>
+            <a mat-button routerLink="/scoreboard">{{'menu.leaderboard' | translate}}</a>
         </div>
 
     </mat-toolbar>
     <mat-sidenav-container fxFlexFill>
         <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
         <div fxLayout="column">
-            <a mat-button class="side-link" routerLink="/">Ergebnisse</a>
-            <a mat-button class="side-link" routerLink="/scoreboard">Rangliste</a>
+            <a mat-button class="side-link" routerLink="/">{{'menu.results' | translate}}</a>
+            <a mat-button class="side-link" routerLink="/scoreboard">{{'menu.leaderboard' | translate}}</a>
         </div>
         </mat-sidenav>
         <mat-sidenav-content fxFlexFill class="main">

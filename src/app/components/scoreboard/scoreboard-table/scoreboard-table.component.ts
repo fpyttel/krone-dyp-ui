@@ -4,6 +4,7 @@ import { PlayerChartsState } from 'src/app/store/player-charts/player-charts.red
 import { Player } from 'src/app/models/player.model';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { FetchPlayerScoreboardAction } from 'src/app/store/player-charts/player-charts.actions';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-scoreboard-table',
@@ -21,7 +22,9 @@ export class ScoreboardTableComponent implements OnInit {
   years = this.getYears();
   selectedYear = new Date().getFullYear() + '';
 
-  constructor(private playerChartsStore: Store<PlayerChartsState>) { }
+  constructor(
+    private translate: TranslateService,
+    private playerChartsStore: Store<PlayerChartsState>) { }
 
   ngOnInit(): void {
     // load scoreboard

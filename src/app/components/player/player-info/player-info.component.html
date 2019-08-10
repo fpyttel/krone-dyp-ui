@@ -1,27 +1,27 @@
 <div class="player-info">
     <dl class="row player-info__infos">
-        <dt class="col-md-4">Elo-Skill</dt>
+        <dt class="col-md-4">{{ 'player.info.elo-skill' | translate }}</dt>
         <dd class="col-md-6">{{calcElo(player?.stats.elo)}}</dd>
     
-        <dt class="col-md-4 text-truncate">Letzte Teilnahme</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.last-participation' | translate }}</dt>
         <dd class="col-md-6">{{player?.stats.lastDypDate}}</dd>
     
-        <dt class="col-md-4 text-truncate">Teilnahmen gesamt</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.participations' | translate }}</dt>
         <dd class="col-md-6">{{player?.stats.dyps}}</dd>
 
-        <dt class="col-md-4 text-truncate">Punkte</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.points' | translate }}</dt>
         <dd class="col-md-6">{{player?.stats.points}}</dd>
     
-        <dt class="col-md-4 text-truncate">Anzahl Spiele</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.matches' | translate }}</dt>
         <dd class="col-md-6">{{player?.stats.matches}}</dd>
     
-        <dt class="col-md-4 text-truncate">Gewonnene Spiele</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.win' | translate }}</dt>
         <dd class="col-md-6">{{player?.stats.wins}}</dd>
     
-        <dt class="col-md-4 text-truncate">Verlorene Spiele</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.loss' | translate }}</dt>
         <dd class="col-md-6">{{player?.stats.loss}}</dd>
     
-        <dt class="col-md-4 text-truncate">Effektivität</dt>
+        <dt class="col-md-4 text-truncate">{{ 'player.info.effectivity' | translate }}</dt>
         <dd class="col-md-6">{{calcEffectivity(player?.stats.effectivity)}}%</dd>
     </dl>
 </div>

@@ -9,7 +9,7 @@ import { dypReducer } from './store/dyp/dyp.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { DypEffects } from './store/dyp/dyp.effect';
 import { StoreModule } from '@ngrx/store';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { playerReducer } from './store/player/player.reducer';
 import { PlayerEffects } from './store/player/player.effect';
 import { PageNotFoundModule } from './components/page-not-found/page-not-found.module';
@@ -18,6 +18,8 @@ import { PlayerChartsEffects } from './store/player-charts/player-charts.effect'
 import { NgxUiLoaderModule, NgxUiLoaderConfig, POSITION, SPINNER, PB_DIRECTION } from 'ngx-ui-loader';
 import { dypChartsReducer } from './store/dyp-charts/dyp-charts.reducer';
 import { DypChartsEffects } from './store/dyp-charts/dyp-charts.effect';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsColor: '#6E9610',
@@ -28,6 +30,10 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbDirection: PB_DIRECTION.leftToRight, // progress bar direction
   pbThickness: 5, // progress bar thickness
 };
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 @NgModule({
   declarations: [
     AppComponent
@@ -37,6 +43,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  }),
     StoreModule.forRoot({
       dyps: dypReducer,
       dypCharts: dypChartsReducer,
