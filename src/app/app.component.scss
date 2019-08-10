@@ -1,0 +1,11 @@
+@import "../styles.scss";
+
+.footer {
+    font-size: .8rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    &__version {
+        margin-left: .5rem;
+    }
+}
