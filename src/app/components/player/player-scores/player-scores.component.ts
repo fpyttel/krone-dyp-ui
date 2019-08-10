@@ -54,6 +54,7 @@ export class PlayerScoresComponent implements OnInit {
     this.playerChartsStore.select('playerCharts').subscribe(p => {
       this.scoreChartData = p.scoreData ? p.scoreData : [['', 0]];
       if (p.scoreData) {
+        this.appendLabel(this.scoreChartData);
         this.loaderService.stopLoader('scores-loader');
       } else {
         try {
@@ -68,6 +69,16 @@ export class PlayerScoresComponent implements OnInit {
     this.player.pipe(filter(player => !!player)).subscribe((player: Player) => {
       this.playerChartsStore.dispatch(new FetchPlayerScoresAction(player.id));
     });
+  }
+
+  private appendLabel(scoreData): void {
+    if (scoreData) {
+      scoreData.forEach(element => {
+        if (element && element[0].endsWith('.')) {
+          element[0] += ' Platz';
+        }
+      });
+    }
   }
 
 }
